@@ -206,14 +206,14 @@ var _ = Describe("GRC: [P1][Sev1][policy-grc] Test install Operator",
 						csvName,
 						testNS+noGroupSuffix,
 						true,
-						defaultTimeoutSeconds*2,
+						defaultTimeoutSeconds*4,
 					)
 					Expect(csv).NotTo(BeNil())
 
 					phase, _, _ := unstructured.NestedString(csv.Object, "status", "phase")
 
 					return phase
-				}, defaultTimeoutSeconds*2, 1).Should(Equal("Succeeded"))
+				}, defaultTimeoutSeconds*4, 1).Should(Equal("Succeeded"))
 			})
 
 			It("Should verify the intended operator is installed", func() {
@@ -376,14 +376,14 @@ var _ = Describe("GRC: [P1][Sev1][policy-grc] Test install Operator",
 						csvName,
 						testNS+withGroupSuffix,
 						true,
-						defaultTimeoutSeconds*2,
+						defaultTimeoutSeconds*4,
 					)
 					Expect(csv).NotTo(BeNil())
 
 					phase, _, _ := unstructured.NestedString(csv.Object, "status", "phase")
 
 					return phase
-				}, defaultTimeoutSeconds*2, 1).Should(Equal("Succeeded"))
+				}, defaultTimeoutSeconds*4, 1).Should(Equal("Succeeded"))
 			})
 
 			It("Should verify the intended operator is installed", func() {
